@@ -1,146 +1,138 @@
-*{
-box-sizing:border-box;
-}
+// 👾 BOBU V3 Website Script
 
 
-html{
-scroll-behavior:smooth;
-}
-
-
-body{
-
-margin:0;
-
-font-family:Arial, Helvetica, sans-serif;
-
-color:white;
-
-background:
-linear-gradient(135deg,#100020,#4b0082,#001d3d);
-
-overflow-x:hidden;
-
-}
+console.log("🚀 Welcome to BOBU Galaxy");
 
 
 
 
-/* Galaxy Background */
+// Button animation
 
-.stars{
+const buttons = document.querySelectorAll(".btn");
 
-position:fixed;
 
-width:100%;
+buttons.forEach((button)=>{
 
-height:100%;
 
-top:0;
+button.addEventListener("mouseenter",()=>{
 
-left:0;
+button.style.transform="scale(1.08)";
 
-z-index:-1;
-
-background-image:
-
-radial-gradient(circle,#ffffff55 1px,transparent 1px);
-
-background-size:45px 45px;
-
-animation:galaxy 30s linear infinite;
-
-}
+});
 
 
 
-@keyframes galaxy{
+button.addEventListener("mouseleave",()=>{
 
-from{
+button.style.transform="scale(1)";
 
-transform:translateY(0);
-
-}
+});
 
 
-to{
+});
 
-transform:translateY(-300px);
 
-}
+
+
+
+
+// Scroll reveal
+
+
+const cards = document.querySelectorAll(".card");
+
+
+
+const reveal = new IntersectionObserver((entries)=>{
+
+
+entries.forEach((entry)=>{
+
+
+if(entry.isIntersecting){
+
+
+entry.target.style.opacity="1";
+
+entry.target.style.transform="translateY(0)";
+
 
 }
 
 
+});
+
+
+},{
+
+threshold:0.15
+
+});
 
 
 
-/* Header */
 
 
-header{
+cards.forEach((card)=>{
 
-padding:25px;
+
+card.style.opacity="0";
+
+card.style.transform="translateY(50px)";
+
+card.style.transition="all .8s ease";
+
+
+reveal.observe(card);
+
+
+});
+
+
+
+
+
+
+
+// BOBU Secret Easter Egg 👾
+
+
+const bobu = document.querySelector(".character img");
+
+
+let clicks = 0;
+
+
+
+if(bobu){
+
+
+bobu.addEventListener("click",()=>{
+
+
+clicks++;
+
+
+
+if(clicks === 5){
+
+
+alert(
+
+"👾 BOBU SECRET POWER ACTIVATED 🌈🚀\nWelcome Bobonaut!"
+
+);
+
+
+clicks = 0;
+
 
 }
 
 
 
-nav{
+});
 
-max-width:1200px;
-
-margin:auto;
-
-display:flex;
-
-justify-content:space-between;
-
-align-items:center;
-
-}
-
-
-
-.logo{
-
-display:flex;
-
-align-items:center;
-
-gap:10px;
-
-font-size:35px;
-
-font-weight:900;
-
-}
-
-
-
-.logo img{
-
-width:55px;
-
-height:55px;
-
-border-radius:50%;
-
-}
-
-
-
-
-
-.nav-links a{
-
-color:white;
-
-text-decoration:none;
-
-margin-left:20px;
-
-font-weight:bold;
 
 }
 
@@ -148,795 +140,511 @@ font-weight:bold;
 
 
 
-/* Hero */
 
 
-.hero{
+// Dynamic footer year
 
-max-width:1200px;
 
-margin:auto;
+const footer = document.querySelector("footer p");
 
-padding:80px 20px;
 
-display:flex;
+if(footer){
 
-align-items:center;
 
-justify-content:space-between;
+footer.innerHTML =
 
-gap:50px;
-
-}
-
-
-
-
-.hero-text{
-
-max-width:600px;
-
-}
-
-
-
-.hero h1{
-
-font-size:110px;
-
-margin:0;
-
-background:
-
-linear-gradient(90deg,#ff00cc,#00ffff);
-
--webkit-background-clip:text;
-
-color:transparent;
-
-}
-
-
-
-.hero h2{
-
-font-size:38px;
-
-}
-
-
-
-.hero p{
-
-font-size:22px;
-
-line-height:1.7;
-
-}
-
-
-
-
-
-/* BOBU */
-
-.character img{
-
-width:400px;
-
-max-width:90%;
-
-animation:
-
-floating 4s ease-in-out infinite;
-
-filter:
-
-drop-shadow(0 0 45px #00ffff);
-
-}
-
-
-
-@keyframes floating{
-
-0%,100%{
-
-transform:translateY(0);
-
-}
-
-50%{
-
-transform:translateY(-25px);
-
-}
-
-}
-
-
-
-
-
-/* Buttons */
-
-
-.buttons{
-
-margin-top:30px;
-
-}
-
-
-
-.btn{
-
-display:inline-block;
-
-padding:15px 30px;
-
-margin:8px;
-
-border-radius:50px;
-
-text-decoration:none;
-
-color:white;
-
-font-weight:bold;
-
-background:#ffffff20;
-
-border:1px solid #ffffff55;
-
-transition:.3s;
-
-}
-
-
-
-.btn:hover{
-
-transform:scale(1.1);
-
-background:white;
-
-color:#6600ff;
-
-box-shadow:
-
-0 0 30px #00ffff;
-
-}
-
-
-
-.primary{
-
-background:
-
-linear-gradient(90deg,#ff00cc,#6600ff);
-
-}
-
-
-
-
-
-/* Cards */
-
-
-.card{
-
-max-width:900px;
-
-margin:45px auto;
-
-padding:35px;
-
-border-radius:25px;
-
-background:
-
-rgba(255,255,255,.12);
-
-border:
-
-1px solid rgba(255,255,255,.25);
-
-backdrop-filter:blur(15px);
-
-}
-
-
-
-.card h2{
-
-font-size:38px;
-
-}
-
-
-
-.card p{
-
-font-size:20px;
-
-line-height:1.7;
-
-}
-
-
-
-
-
-/* Feature Cards */
-
-
-.features{
-
-max-width:1100px;
-
-margin:auto;
-
-display:flex;
-
-gap:20px;
-
-padding:20px;
-
-}
-
-
-
-.features .card{
-
-flex:1;
-
-}
-
-
-
-
-/* Footer */
-
-
-footer{
-
-text-align:center;
-
-padding:60px;
-
-font-size:18px;
-
-}
-
-
-
-
-
-/* Mobile */
-
-
-@media(max-width:800px){
-
-
-.hero{
-
-flex-direction:column;
-
-text-align:center;
-
-}
-
-
-
-.hero h1{
-
-font-size:70px;
-
-}
-
-
-
-.hero h2{
-
-font-size:26px;
-
-}
-
-
-
-.character img{
-
-width:280px;
-
-}
-
-
-
-.nav-links{
-
-display:none;
-
-}
-
-
-
-.features{
-
-flex-direction:column;
-
-}
-
-
-
-.logo{
-
-font-size:25px;
-
-}
-
+"👾 BOBU © " + new Date().getFullYear();
 
 
 }
-
 
 
 
 iPhone’umdan gönderildi
 
-> Mehmet Ali TOPAL <dr_mtopal@hotmail.com> şunları yazdı (16.7.2026 00:58):
+> Mehmet Ali TOPAL <dr_mtopal@hotmail.com> şunları yazdı (16.7.2026 00:59):
 >
 > ﻿
-> <!DOCTYPE html>
-> <html lang="en">
+> *{
+> box-sizing:border-box;
+> }
 >
-> <head>
 >
-> <meta charset="UTF-8">
-> <meta name="viewport" content="width=device-width, initial-scale=1.0">
+> html{
+> scroll-behavior:smooth;
+> }
 >
-> <title>BOBU | The Alien Meme on Solana 👾</title>
 >
-> <meta name="description" content="BOBU landed on Solana. Join the colorful meme community.">
+> body{
 >
-> <meta name="theme-color" content="#7b2cff">
+> margin:0;
 >
+> font-family:Arial, Helvetica, sans-serif;
 >
-> <meta property="og:title" content="BOBU | The Alien Meme on Solana">
+> color:white;
 >
-> <meta property="og:description" content="A colorful alien building the next legendary meme community.">
+> background:
+> linear-gradient(135deg,#100020,#4b0082,#001d3d);
 >
-> <meta property="og:image" content="images/bobu.png">
+> overflow-x:hidden;
 >
-> <meta property="og:type" content="website">
+> }
 >
 >
-> <meta name="twitter:card" content="summary_large_image">
 >
-> <meta name="twitter:title" content="BOBU | Solana Meme">
 >
-> <meta name="twitter:description" content="The alien meme that landed on Solana.">
+> /* Galaxy Background */
 >
-> <meta name="twitter:image" content="images/bobu.png">
+> .stars{
 >
+> position:fixed;
 >
-> <link rel="icon" href="images/bobu.png">
+> width:100%;
 >
-> <link rel="stylesheet" href="style.css">
+> height:100%;
 >
+> top:0;
 >
-> </head>
+> left:0;
 >
+> z-index:-1;
 >
+> background-image:
 >
-> <body>
+> radial-gradient(circle,#ffffff55 1px,transparent 1px);
 >
+> background-size:45px 45px;
 >
-> <div class="stars"></div>
+> animation:galaxy 30s linear infinite;
 >
+> }
 >
 >
-> <header>
 >
-> <nav>
+> @keyframes galaxy{
 >
+> from{
 >
-> <div class="logo">
+> transform:translateY(0);
 >
-> <img src="images/bobu.png">
+> }
 >
-> <span>BOBU</span>
 >
-> </div>
+> to{
 >
+> transform:translateY(-300px);
 >
+> }
 >
-> <div class="nav-links">
+> }
 >
-> <a href="#story">Story</a>
 >
-> <a href="#buy">Buy</a>
 >
-> <a href="#tokenomics">Tokenomics</a>
 >
-> <a href="#roadmap">Roadmap</a>
 >
-> </div>
+> /* Header */
 >
 >
+> header{
 >
-> </nav>
+> padding:25px;
 >
-> </header>
+> }
 >
 >
 >
+> nav{
 >
+> max-width:1200px;
 >
+> margin:auto;
 >
-> <section class="hero">
+> display:flex;
 >
+> justify-content:space-between;
 >
-> <div class="hero-text">
+> align-items:center;
 >
+> }
 >
-> <h1>
-> BOBU
-> </h1>
 >
 >
-> <h2>
-> The Alien Meme That Landed On Solana 🚀
-> </h2>
+> .logo{
 >
+> display:flex;
 >
-> <p>
+> align-items:center;
 >
-> A tiny alien from another galaxy discovered the strongest energy in the universe...
+> gap:10px;
 >
-> MEMES.
+> font-size:35px;
 >
-> Now BOBU is here to build the next legendary community.
+> font-weight:900;
 >
-> 👾🌈
+> }
 >
-> </p>
 >
 >
+> .logo img{
 >
-> <div class="buttons">
+> width:55px;
 >
+> height:55px;
 >
-> <a class="btn primary" href="#" target="_blank">
+> border-radius:50%;
 >
-> 🚀 Buy BOBU
+> }
 >
-> </a>
 >
 >
 >
-> <a class="btn" href="https://x.com/bobu_hq?s=11&t=QE7leJoBGqbauUgZfO6c7g" target="_blank">
 >
-> 🐦 X
+> .nav-links a{
 >
-> </a>
+> color:white;
 >
+> text-decoration:none;
 >
+> margin-left:20px;
 >
+> font-weight:bold;
 >
-> <a class="btn" href="https://t.me/bobu_hq" target="_blank">
+> }
 >
-> 💬 Telegram
 >
-> </a>
 >
 >
 >
-> </div>
+> /* Hero */
 >
 >
+> .hero{
 >
-> </div>
+> max-width:1200px;
 >
+> margin:auto;
 >
+> padding:80px 20px;
 >
+> display:flex;
 >
+> align-items:center;
 >
-> <div class="character">
+> justify-content:space-between;
 >
+> gap:50px;
 >
-> <img src="images/bobu.png" alt="BOBU Alien">
+> }
 >
 >
-> </div>
 >
 >
+> .hero-text{
 >
-> </section>
+> max-width:600px;
 >
+> }
 >
 >
 >
+> .hero h1{
 >
+> font-size:110px;
 >
+> margin:0;
 >
+> background:
 >
-> <section id="story" class="card">
+> linear-gradient(90deg,#ff00cc,#00ffff);
 >
+> -webkit-background-clip:text;
 >
-> <h2>
-> 👾 Bobu Story
-> </h2>
+> color:transparent;
 >
+> }
 >
-> <p>
 >
-> BOBU travelled across galaxies searching for intelligent life.
 >
-> He found something stronger...
+> .hero h2{
 >
-> A global meme culture.
+> font-size:38px;
 >
-> Now BOBU has landed on Solana to connect creators, dreamers and meme lovers.
+> }
 >
-> </p>
 >
 >
-> </section>
+> .hero p{
 >
+> font-size:22px;
 >
+> line-height:1.7;
 >
+> }
 >
 >
 >
 >
 >
-> <section class="features">
+> /* BOBU */
 >
+> .character img{
 >
-> <div class="card">
+> width:400px;
 >
-> <h3>
-> 🌈 Community First
-> </h3>
+> max-width:90%;
 >
-> <p>
-> The power belongs to the Bobonauts.
-> </p>
+> animation:
 >
-> </div>
+> floating 4s ease-in-out infinite;
 >
+> filter:
 >
+> drop-shadow(0 0 45px #00ffff);
 >
-> <div class="card">
+> }
 >
-> <h3>
-> ⚡ Solana Native
-> </h3>
 >
-> <p>
-> Fast. Simple. Powerful.
-> </p>
 >
-> </div>
+> @keyframes floating{
 >
+> 0%,100%{
 >
+> transform:translateY(0);
 >
-> <div class="card">
+> }
 >
-> <h3>
-> 🔥 Meme Energy
-> </h3>
+> 50%{
 >
-> <p>
-> Created for internet culture.
-> </p>
+> transform:translateY(-25px);
 >
-> </div>
+> }
 >
+> }
 >
-> </section>
 >
 >
 >
 >
+> /* Buttons */
 >
 >
+> .buttons{
 >
+> margin-top:30px;
 >
+> }
 >
-> <section id="buy" class="card">
 >
 >
-> <h2>
-> 🚀 How To Buy
-> </h2>
+> .btn{
 >
+> display:inline-block;
 >
-> <p>
-> 1️⃣ Create a Solana wallet
-> </p>
+> padding:15px 30px;
 >
+> margin:8px;
 >
-> <p>
-> 2️⃣ Add SOL
-> </p>
+> border-radius:50px;
 >
+> text-decoration:none;
 >
-> <p>
-> 3️⃣ Visit Pump.fun
-> </p>
+> color:white;
 >
+> font-weight:bold;
 >
-> <p>
-> 4️⃣ Join the Bobonauts
-> </p>
+> background:#ffffff20;
 >
+> border:1px solid #ffffff55;
 >
+> transition:.3s;
 >
-> </section>
+> }
 >
 >
 >
+> .btn:hover{
 >
+> transform:scale(1.1);
 >
+> background:white;
 >
+> color:#6600ff;
 >
+> box-shadow:
 >
+> 0 0 30px #00ffff;
 >
-> <section id="tokenomics" class="card">
+> }
 >
 >
-> <h2>
-> 📊 Tokenomics
-> </h2>
 >
+> .primary{
 >
-> <p>
-> Name: BOBU
-> </p>
+> background:
 >
+> linear-gradient(90deg,#ff00cc,#6600ff);
 >
-> <p>
-> Symbol: $BOBU
-> </p>
+> }
 >
 >
-> <p>
-> Network: Solana
-> </p>
 >
 >
-> <p>
-> Supply: 1,000,000,000
-> </p>
 >
+> /* Cards */
 >
-> <p>
-> Tax: 0%
-> </p>
 >
+> .card{
 >
+> max-width:900px;
 >
-> </section>
+> margin:45px auto;
 >
+> padding:35px;
 >
+> border-radius:25px;
 >
+> background:
 >
+> rgba(255,255,255,.12);
 >
+> border:
 >
+> 1px solid rgba(255,255,255,.25);
 >
+> backdrop-filter:blur(15px);
 >
+> }
 >
-> <section id="roadmap" class="card">
 >
 >
-> <h2>
-> 🗺 Roadmap
-> </h2>
+> .card h2{
 >
+> font-size:38px;
 >
-> <p>
-> 🚀 Phase 1 — Launch
-> </p>
+> }
 >
 >
-> <p>
-> 🔥 Phase 2 — Community Expansion
-> </p>
 >
+> .card p{
 >
-> <p>
-> 🌎 Phase 3 — Global Meme Movement
-> </p>
+> font-size:20px;
 >
+> line-height:1.7;
 >
-> <p>
-> 💎 Phase 4 — Internet Legend
-> </p>
+> }
 >
 >
 >
-> </section>
 >
 >
+> /* Feature Cards */
 >
 >
+> .features{
 >
+> max-width:1100px;
 >
+> margin:auto;
 >
+> display:flex;
 >
-> <section class="card">
+> gap:20px;
 >
+> padding:20px;
 >
-> <h2>
-> 👾 Join The Bobonauts
-> </h2>
+> }
 >
 >
-> <p>
 >
-> Become part of the BOBU galaxy.
+> .features .card{
 >
-> Memes, creativity and community.
+> flex:1;
 >
-> </p>
+> }
 >
 >
 >
-> <a class="btn" href="https://x.com/bobu_hq?s=11&t=QE7leJoBGqbauUgZfO6c7g" target="_blank">
 >
-> 🐦 Join X
+> /* Footer */
 >
-> </a>
 >
+> footer{
 >
+> text-align:center;
 >
-> <a class="btn" href="https://t.me/bobu_hq" target="_blank">
+> padding:60px;
 >
-> 💬 Join Telegram
+> font-size:18px;
 >
-> </a>
+> }
 >
 >
 >
-> </section>
 >
 >
+> /* Mobile */
 >
 >
+> @media(max-width:800px){
 >
 >
+> .hero{
 >
+> flex-direction:column;
 >
-> <footer>
+> text-align:center;
 >
+> }
 >
-> <p>
-> 👾 BOBU © 2026
-> </p>
 >
 >
-> <p>
-> Stay Colorful 🌈
-> </p>
+> .hero h1{
 >
+> font-size:70px;
 >
-> </footer>
+> }
 >
 >
 >
+> .hero h2{
 >
+> font-size:26px;
 >
+> }
 >
-> <script src="script.js"></script>
 >
 >
-> </body>
+> .character img{
 >
+> width:280px;
 >
-> </html>
+> }
 >
+>
+>
+> .nav-links{
+>
+> display:none;
+>
+> }
+>
+>
+>
+> .features{
+>
+> flex-direction:column;
+>
+> }
+>
+>
+>
+> .logo{
+>
+> font-size:25px;
+>
+> }
+>
+>
+>
+> }
 >
