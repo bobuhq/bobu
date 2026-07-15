@@ -1,95 +1,135 @@
 *{
-    box-sizing:border-box;
+box-sizing:border-box;
 }
 
 html{
-    scroll-behavior:smooth;
+scroll-behavior:smooth;
 }
 
 body{
-    margin:0;
-    font-family:Arial, Helvetica, sans-serif;
-    color:white;
-    background:
-    linear-gradient(135deg,#16002e,#3b0a70,#001f3f);
-    overflow-x:hidden;
+
+margin:0;
+font-family:Arial, Helvetica, sans-serif;
+color:white;
+
+background:
+linear-gradient(135deg,#12002b,#4b0082,#001f3f);
+
+overflow-x:hidden;
+
 }
+
 
 
 /* Animated background */
 
 .stars{
-    position:fixed;
-    width:100%;
-    height:100%;
-    top:0;
-    left:0;
-    background:
-    radial-gradient(circle,#ffffff33 1px,transparent 1px);
-    background-size:40px 40px;
-    animation:moveStars 20s linear infinite;
-    z-index:-1;
+
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+
+background-image:
+radial-gradient(circle,rgba(255,255,255,.35) 1px,transparent 1px);
+
+background-size:45px 45px;
+
+animation:starsMove 25s linear infinite;
+
+z-index:-1;
+
 }
 
 
-@keyframes moveStars{
+@keyframes starsMove{
 
 from{
-    transform:translateY(0);
+transform:translateY(0);
 }
 
 to{
-    transform:translateY(-200px);
+transform:translateY(-300px);
 }
 
 }
 
 
 
-/* Navigation */
+
+/* Header */
+
 
 header{
-    padding:20px;
+
+padding:25px;
+
 }
 
 
 nav{
-    max-width:1100px;
-    margin:auto;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
+
+max-width:1200px;
+
+margin:auto;
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
 }
+
 
 
 .logo{
-    font-size:32px;
-    font-weight:900;
+
+font-size:35px;
+
+font-weight:900;
+
 }
+
 
 
 .nav-links a{
-    color:white;
-    text-decoration:none;
-    margin-left:20px;
+
+color:white;
+
+text-decoration:none;
+
+margin-left:20px;
+
+font-weight:bold;
+
 }
+
 
 
 
 /* Hero */
 
+
 .hero{
 
 max-width:1200px;
+
 margin:auto;
+
 padding:80px 20px;
 
 display:flex;
+
 align-items:center;
+
 justify-content:space-between;
+
 gap:40px;
 
 }
+
 
 
 .hero-text{
@@ -99,13 +139,17 @@ max-width:600px;
 }
 
 
+
 .hero h1{
 
-font-size:90px;
+font-size:100px;
+
 margin:0;
 
 background:linear-gradient(90deg,#ff00cc,#00ffff);
+
 -webkit-background-clip:text;
+
 color:transparent;
 
 }
@@ -123,38 +167,54 @@ font-size:35px;
 .hero p{
 
 font-size:22px;
+
 line-height:1.6;
 
 }
 
 
 
-/* Character */
+
+/* BOBU */
+
 
 .character img{
 
-width:350px;
+width:380px;
+
 max-width:90%;
 
-animation:floating 4s ease-in-out infinite;
+filter:
+drop-shadow(0 0 40px #00ffff);
 
-filter:drop-shadow(0 0 40px #00ffff);
+animation:
+
+float 4s ease-in-out infinite;
 
 }
 
 
 
-@keyframes floating{
+@keyframes float{
+
 
 0%,100%{
+
 transform:translateY(0);
+
 }
+
 
 50%{
+
 transform:translateY(-25px);
-}
 
 }
+
+
+}
+
+
 
 
 
@@ -172,21 +232,21 @@ margin-top:30px;
 
 display:inline-block;
 
-padding:15px 25px;
+padding:15px 28px;
 
 margin:8px;
 
 border-radius:50px;
-
-background:#ffffff22;
-
-border:1px solid #ffffff55;
 
 color:white;
 
 text-decoration:none;
 
 font-weight:bold;
+
+background:#ffffff20;
+
+border:1px solid #ffffff55;
 
 transition:.3s;
 
@@ -200,7 +260,11 @@ transform:scale(1.08);
 
 background:white;
 
-color:#6a00ff;
+color:#6500ff;
+
+box-shadow:
+
+0 0 25px #00ffff;
 
 }
 
@@ -208,9 +272,13 @@ color:#6a00ff;
 
 .primary{
 
-background:linear-gradient(90deg,#ff00cc,#6600ff);
+background:
+
+linear-gradient(90deg,#ff00cc,#6600ff);
 
 }
+
+
 
 
 
@@ -225,15 +293,20 @@ margin:40px auto;
 
 padding:35px;
 
-background:#ffffff15;
+background:
+
+rgba(255,255,255,.12);
 
 border-radius:25px;
 
-border:1px solid #ffffff22;
+border:
 
-backdrop-filter:blur(10px);
+1px solid rgba(255,255,255,.25);
+
+backdrop-filter:blur(12px);
 
 }
+
 
 
 .card h2{
@@ -243,6 +316,7 @@ font-size:35px;
 }
 
 
+
 .card p{
 
 font-size:20px;
@@ -250,6 +324,8 @@ font-size:20px;
 line-height:1.7;
 
 }
+
+
 
 
 
@@ -279,6 +355,8 @@ flex:1;
 
 
 
+
+
 /* Footer */
 
 
@@ -294,6 +372,7 @@ font-size:18px;
 
 
 
+
 /* Mobile */
 
 
@@ -303,6 +382,7 @@ font-size:18px;
 .hero{
 
 flex-direction:column;
+
 text-align:center;
 
 }
@@ -310,9 +390,18 @@ text-align:center;
 
 .hero h1{
 
-font-size:60px;
+font-size:65px;
 
 }
+
+
+
+.hero h2{
+
+font-size:25px;
+
+}
+
 
 
 .nav-links{
@@ -322,11 +411,13 @@ display:none;
 }
 
 
+
 .features{
 
 flex-direction:column;
 
 }
+
 
 
 .character img{
@@ -338,3 +429,376 @@ width:280px;
 
 }
 
+
+
+
+iPhone’umdan gönderildi
+
+> Mehmet Ali TOPAL <dr_mtopal@hotmail.com> şunları yazdı (16.7.2026 00:51):
+>
+> ﻿
+> <!DOCTYPE html>
+> <html lang="en">
+>
+> <head>
+>
+> <meta charset="UTF-8">
+> <meta name="viewport" content="width=device-width, initial-scale=1.0">
+>
+> <title>BOBU | The Alien Meme on Solana</title>
+>
+> <meta name="description" content="BOBU - The next viral meme community on Solana">
+>
+> <link rel="icon" type="image/png" href="images/bobu.png">
+>
+> <link rel="stylesheet" href="style.css">
+>
+> </head>
+>
+>
+> <body>
+>
+> <div class="stars"></div>
+>
+>
+> <header>
+>
+> <nav>
+>
+> <div class="logo">
+> 👾 BOBU
+> </div>
+>
+>
+> <div class="nav-links">
+>
+> <a href="#story">Story</a>
+> <a href="#buy">Buy</a>
+> <a href="#tokenomics">Tokenomics</a>
+> <a href="#roadmap">Roadmap</a>
+>
+> </div>
+>
+> </nav>
+>
+> </header>
+>
+>
+>
+>
+> <section class="hero">
+>
+>
+> <div class="hero-text">
+>
+>
+> <h1>
+> BOBU
+> </h1>
+>
+>
+> <h2>
+> The Alien Meme That Landed On Solana 🚀
+> </h2>
+>
+>
+> <p>
+> BOBU traveled across galaxies searching for the ultimate meme energy.
+> Now he has landed on Solana to build a legendary community.
+> 👾🌈
+> </p>
+>
+>
+>
+> <div class="buttons">
+>
+>
+> <a class="btn primary" href="#" target="_blank">
+> 🚀 Buy on Pump.fun
+> </a>
+>
+>
+> <a class="btn" href="https://x.com/bobu_hq?s=11&t=QE7leJoBGqbauUgZfO6c7g" target="_blank">
+> 🐦 Follow X
+> </a>
+>
+>
+> <a class="btn" href="https://t.me/bobu_hq" target="_blank">
+> 💬 Telegram
+> </a>
+>
+>
+> </div>
+>
+>
+> </div>
+>
+>
+>
+>
+> <div class="character">
+>
+> <img src="images/bobu.png" alt="BOBU Character">
+>
+> </div>
+>
+>
+> </section>
+>
+>
+>
+>
+>
+> <section id="story" class="card">
+>
+> <h2>
+> 👾 Meet BOBU
+> </h2>
+>
+> <p>
+>
+> A small alien with a huge mission.
+>
+> BOBU discovered the strongest energy in the universe...
+>
+> MEMES.
+>
+> Now BOBU is here to unite people through creativity, fun and community.
+>
+> </p>
+>
+> </section>
+>
+>
+>
+>
+>
+>
+> <section class="features">
+>
+>
+> <div class="card">
+>
+> <h3>
+> 🌈 Community First
+> </h3>
+>
+> <p>
+> Built by meme lovers.
+> </p>
+>
+> </div>
+>
+>
+>
+> <div class="card">
+>
+> <h3>
+> ⚡ Solana Power
+> </h3>
+>
+> <p>
+> Fast, simple and powerful.
+> </p>
+>
+> </div>
+>
+>
+>
+> <div class="card">
+>
+> <h3>
+> 🔥 Meme Energy
+> </h3>
+>
+> <p>
+> Powered by internet culture.
+> </p>
+>
+> </div>
+>
+>
+> </section>
+>
+>
+>
+>
+>
+>
+> <section id="buy" class="card">
+>
+>
+> <h2>
+> 🚀 How To Buy BOBU
+> </h2>
+>
+>
+> <p>
+> 1️⃣ Create Solana wallet
+> </p>
+>
+> <p>
+> 2️⃣ Add SOL
+> </p>
+>
+> <p>
+> 3️⃣ Buy BOBU on Pump.fun
+> </p>
+>
+> <p>
+> 4️⃣ Join the Bobonauts 👾
+> </p>
+>
+>
+> </section>
+>
+>
+>
+>
+>
+>
+>
+> <section id="tokenomics" class="card">
+>
+>
+> <h2>
+> 📊 Tokenomics
+> </h2>
+>
+>
+> <p>Name: BOBU</p>
+>
+> <p>Symbol: $BOBU</p>
+>
+> <p>Network: Solana</p>
+>
+> <p>Total Supply: 1,000,000,000</p>
+>
+> <p>Tax: 0%</p>
+>
+>
+> </section>
+>
+>
+>
+>
+>
+>
+>
+> <section id="roadmap" class="card">
+>
+>
+> <h2>
+> 🗺 Roadmap
+> </h2>
+>
+>
+> <p>
+> 🚀 Phase 1 — Launch
+> </p>
+>
+>
+> <p>
+> 🔥 Phase 2 — Community Growth
+> </p>
+>
+>
+> <p>
+> 🌎 Phase 3 — Global Meme Expansion
+> </p>
+>
+>
+> <p>
+> 💎 Phase 4 — Internet Legend
+> </p>
+>
+>
+> </section>
+>
+>
+>
+>
+>
+>
+>
+> <section class="card">
+>
+>
+> <h2>
+> 🌈 Why BOBU?
+> </h2>
+>
+>
+> <p>
+> ✔ Community Driven
+> </p>
+>
+> <p>
+> ✔ Meme Powered
+> </p>
+>
+> <p>
+> ✔ Solana Native
+> </p>
+>
+> <p>
+> ✔ Built For Fun
+> </p>
+>
+>
+> </section>
+>
+>
+>
+>
+>
+>
+> <section class="card">
+>
+>
+> <h2>
+> 🌐 Join BOBU Community
+> </h2>
+>
+>
+> <a class="btn" href="https://x.com/bobu_hq?s=11&t=QE7leJoBGqbauUgZfO6c7g" target="_blank">
+> 🐦 X / Twitter
+> </a>
+>
+>
+> <a class="btn" href="https://t.me/bobu_hq" target="_blank">
+> 💬 Telegram
+> </a>
+>
+>
+> </section>
+>
+>
+>
+>
+>
+>
+>
+> <footer>
+>
+> <p>
+> 👾 BOBU © 2026
+> </p>
+>
+> <p>
+> Stay Colorful 🌈
+> </p>
+>
+>
+> </footer>
+>
+>
+>
+>
+>
+> <script src="script.js"></script>
+>
+>
+> </body>
+>
+> </html>
