@@ -1,138 +1,73 @@
-// 👾 BOBU V3 Website Script
-
-
-console.log("🚀 Welcome to BOBU Galaxy");
-
-
-
-
-// Button animation
-
-const buttons = document.querySelectorAll(".btn");
-
-
-buttons.forEach((button)=>{
-
-
-button.addEventListener("mouseenter",()=>{
-
-button.style.transform="scale(1.08)";
-
-});
-
-
-
-button.addEventListener("mouseleave",()=>{
-
-button.style.transform="scale(1)";
-
-});
-
-
-});
-
-
-
-
-
-
-// Scroll reveal
-
-
-const cards = document.querySelectorAll(".card");
-
-
-
-const reveal = new IntersectionObserver((entries)=>{
-
-
-entries.forEach((entry)=>{
-
-
-if(entry.isIntersecting){
-
-
-entry.target.style.opacity="1";
-
-entry.target.style.transform="translateY(0)";
-
-
+{
+box-sizing:border-box;
 }
 
 
-});
+html{
+scroll-behavior:smooth;
+}
 
 
-},{
+body{
 
-threshold:0.15
+margin:0;
 
-});
+font-family:Arial, Helvetica, sans-serif;
 
+color:white;
 
+background:
+linear-gradient(135deg,#100020,#4b0082,#001d3d);
 
-
-
-cards.forEach((card)=>{
-
-
-card.style.opacity="0";
-
-card.style.transform="translateY(50px)";
-
-card.style.transition="all .8s ease";
-
-
-reveal.observe(card);
-
-
-});
-
-
-
-
-
-
-
-// BOBU Secret Easter Egg 👾
-
-
-const bobu = document.querySelector(".character img");
-
-
-let clicks = 0;
-
-
-
-if(bobu){
-
-
-bobu.addEventListener("click",()=>{
-
-
-clicks++;
-
-
-
-if(clicks === 5){
-
-
-alert(
-
-"👾 BOBU SECRET POWER ACTIVATED 🌈🚀\nWelcome Bobonaut!"
-
-);
-
-
-clicks = 0;
-
+overflow-x:hidden;
 
 }
 
 
 
-});
 
+/* Galaxy Background */
+
+.stars{
+
+position:fixed;
+
+width:100%;
+
+height:100%;
+
+top:0;
+
+left:0;
+
+z-index:-1;
+
+background-image:
+
+radial-gradient(circle,#ffffff55 1px,transparent 1px);
+
+background-size:45px 45px;
+
+animation:galaxy 30s linear infinite;
+
+}
+
+
+
+@keyframes galaxy{
+
+from{
+
+transform:translateY(0);
+
+}
+
+
+to{
+
+transform:translateY(-300px);
+
+}
 
 }
 
@@ -140,511 +75,408 @@ clicks = 0;
 
 
 
+/* Header */
 
 
-// Dynamic footer year
+header{
 
-
-const footer = document.querySelector("footer p");
-
-
-if(footer){
-
-
-footer.innerHTML =
-
-"👾 BOBU © " + new Date().getFullYear();
-
+padding:25px;
 
 }
 
 
 
-iPhone’umdan gönderildi
+nav{
 
-> Mehmet Ali TOPAL <dr_mtopal@hotmail.com> şunları yazdı (16.7.2026 00:59):
->
-> ﻿
-> *{
-> box-sizing:border-box;
-> }
->
->
-> html{
-> scroll-behavior:smooth;
-> }
->
->
-> body{
->
-> margin:0;
->
-> font-family:Arial, Helvetica, sans-serif;
->
-> color:white;
->
-> background:
-> linear-gradient(135deg,#100020,#4b0082,#001d3d);
->
-> overflow-x:hidden;
->
-> }
->
->
->
->
-> /* Galaxy Background */
->
-> .stars{
->
-> position:fixed;
->
-> width:100%;
->
-> height:100%;
->
-> top:0;
->
-> left:0;
->
-> z-index:-1;
->
-> background-image:
->
-> radial-gradient(circle,#ffffff55 1px,transparent 1px);
->
-> background-size:45px 45px;
->
-> animation:galaxy 30s linear infinite;
->
-> }
->
->
->
-> @keyframes galaxy{
->
-> from{
->
-> transform:translateY(0);
->
-> }
->
->
-> to{
->
-> transform:translateY(-300px);
->
-> }
->
-> }
->
->
->
->
->
-> /* Header */
->
->
-> header{
->
-> padding:25px;
->
-> }
->
->
->
-> nav{
->
-> max-width:1200px;
->
-> margin:auto;
->
-> display:flex;
->
-> justify-content:space-between;
->
-> align-items:center;
->
-> }
->
->
->
-> .logo{
->
-> display:flex;
->
-> align-items:center;
->
-> gap:10px;
->
-> font-size:35px;
->
-> font-weight:900;
->
-> }
->
->
->
-> .logo img{
->
-> width:55px;
->
-> height:55px;
->
-> border-radius:50%;
->
-> }
->
->
->
->
->
-> .nav-links a{
->
-> color:white;
->
-> text-decoration:none;
->
-> margin-left:20px;
->
-> font-weight:bold;
->
-> }
->
->
->
->
->
-> /* Hero */
->
->
-> .hero{
->
-> max-width:1200px;
->
-> margin:auto;
->
-> padding:80px 20px;
->
-> display:flex;
->
-> align-items:center;
->
-> justify-content:space-between;
->
-> gap:50px;
->
-> }
->
->
->
->
-> .hero-text{
->
-> max-width:600px;
->
-> }
->
->
->
-> .hero h1{
->
-> font-size:110px;
->
-> margin:0;
->
-> background:
->
-> linear-gradient(90deg,#ff00cc,#00ffff);
->
-> -webkit-background-clip:text;
->
-> color:transparent;
->
-> }
->
->
->
-> .hero h2{
->
-> font-size:38px;
->
-> }
->
->
->
-> .hero p{
->
-> font-size:22px;
->
-> line-height:1.7;
->
-> }
->
->
->
->
->
-> /* BOBU */
->
-> .character img{
->
-> width:400px;
->
-> max-width:90%;
->
-> animation:
->
-> floating 4s ease-in-out infinite;
->
-> filter:
->
-> drop-shadow(0 0 45px #00ffff);
->
-> }
->
->
->
-> @keyframes floating{
->
-> 0%,100%{
->
-> transform:translateY(0);
->
-> }
->
-> 50%{
->
-> transform:translateY(-25px);
->
-> }
->
-> }
->
->
->
->
->
-> /* Buttons */
->
->
-> .buttons{
->
-> margin-top:30px;
->
-> }
->
->
->
-> .btn{
->
-> display:inline-block;
->
-> padding:15px 30px;
->
-> margin:8px;
->
-> border-radius:50px;
->
-> text-decoration:none;
->
-> color:white;
->
-> font-weight:bold;
->
-> background:#ffffff20;
->
-> border:1px solid #ffffff55;
->
-> transition:.3s;
->
-> }
->
->
->
-> .btn:hover{
->
-> transform:scale(1.1);
->
-> background:white;
->
-> color:#6600ff;
->
-> box-shadow:
->
-> 0 0 30px #00ffff;
->
-> }
->
->
->
-> .primary{
->
-> background:
->
-> linear-gradient(90deg,#ff00cc,#6600ff);
->
-> }
->
->
->
->
->
-> /* Cards */
->
->
-> .card{
->
-> max-width:900px;
->
-> margin:45px auto;
->
-> padding:35px;
->
-> border-radius:25px;
->
-> background:
->
-> rgba(255,255,255,.12);
->
-> border:
->
-> 1px solid rgba(255,255,255,.25);
->
-> backdrop-filter:blur(15px);
->
-> }
->
->
->
-> .card h2{
->
-> font-size:38px;
->
-> }
->
->
->
-> .card p{
->
-> font-size:20px;
->
-> line-height:1.7;
->
-> }
->
->
->
->
->
-> /* Feature Cards */
->
->
-> .features{
->
-> max-width:1100px;
->
-> margin:auto;
->
-> display:flex;
->
-> gap:20px;
->
-> padding:20px;
->
-> }
->
->
->
-> .features .card{
->
-> flex:1;
->
-> }
->
->
->
->
-> /* Footer */
->
->
-> footer{
->
-> text-align:center;
->
-> padding:60px;
->
-> font-size:18px;
->
-> }
->
->
->
->
->
-> /* Mobile */
->
->
-> @media(max-width:800px){
->
->
-> .hero{
->
-> flex-direction:column;
->
-> text-align:center;
->
-> }
->
->
->
-> .hero h1{
->
-> font-size:70px;
->
-> }
->
->
->
-> .hero h2{
->
-> font-size:26px;
->
-> }
->
->
->
-> .character img{
->
-> width:280px;
->
-> }
->
->
->
-> .nav-links{
->
-> display:none;
->
-> }
->
->
->
-> .features{
->
-> flex-direction:column;
->
-> }
->
->
->
-> .logo{
->
-> font-size:25px;
->
-> }
->
->
->
-> }
->
+max-width:1200px;
+
+margin:auto;
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+}
+
+
+
+.logo{
+
+display:flex;
+
+align-items:center;
+
+gap:10px;
+
+font-size:35px;
+
+font-weight:900;
+
+}
+
+
+
+.logo img{
+
+width:55px;
+
+height:55px;
+
+border-radius:50%;
+
+}
+
+
+
+
+
+.nav-links a{
+
+color:white;
+
+text-decoration:none;
+
+margin-left:20px;
+
+font-weight:bold;
+
+}
+
+
+
+
+
+/* Hero */
+
+
+.hero{
+
+max-width:1200px;
+
+margin:auto;
+
+padding:80px 20px;
+
+display:flex;
+
+align-items:center;
+
+justify-content:space-between;
+
+gap:50px;
+
+}
+
+
+
+
+.hero-text{
+
+max-width:600px;
+
+}
+
+
+
+.hero h1{
+
+font-size:110px;
+
+margin:0;
+
+background:
+
+linear-gradient(90deg,#ff00cc,#00ffff);
+
+-webkit-background-clip:text;
+
+color:transparent;
+
+}
+
+
+
+.hero h2{
+
+font-size:38px;
+
+}
+
+
+
+.hero p{
+
+font-size:22px;
+
+line-height:1.7;
+
+}
+
+
+
+
+
+/* BOBU */
+
+.character img{
+
+width:400px;
+
+max-width:90%;
+
+animation:
+
+floating 4s ease-in-out infinite;
+
+filter:
+
+drop-shadow(0 0 45px #00ffff);
+
+}
+
+
+
+@keyframes floating{
+
+0%,100%{
+
+transform:translateY(0);
+
+}
+
+50%{
+
+transform:translateY(-25px);
+
+}
+
+}
+
+
+
+
+
+/* Buttons */
+
+
+.buttons{
+
+margin-top:30px;
+
+}
+
+
+
+.btn{
+
+display:inline-block;
+
+padding:15px 30px;
+
+margin:8px;
+
+border-radius:50px;
+
+text-decoration:none;
+
+color:white;
+
+font-weight:bold;
+
+background:#ffffff20;
+
+border:1px solid #ffffff55;
+
+transition:.3s;
+
+}
+
+
+
+.btn:hover{
+
+transform:scale(1.1);
+
+background:white;
+
+color:#6600ff;
+
+box-shadow:
+
+0 0 30px #00ffff;
+
+}
+
+
+
+.primary{
+
+background:
+
+linear-gradient(90deg,#ff00cc,#6600ff);
+
+}
+
+
+
+
+
+/* Cards */
+
+
+.card{
+
+max-width:900px;
+
+margin:45px auto;
+
+padding:35px;
+
+border-radius:25px;
+
+background:
+
+rgba(255,255,255,.12);
+
+border:
+
+1px solid rgba(255,255,255,.25);
+
+backdrop-filter:blur(15px);
+
+}
+
+
+
+.card h2{
+
+font-size:38px;
+
+}
+
+
+
+.card p{
+
+font-size:20px;
+
+line-height:1.7;
+
+}
+
+
+
+
+
+/* Feature Cards */
+
+
+.features{
+
+max-width:1100px;
+
+margin:auto;
+
+display:flex;
+
+gap:20px;
+
+padding:20px;
+
+}
+
+
+
+.features .card{
+
+flex:1;
+
+}
+
+
+
+
+/* Footer */
+
+
+footer{
+
+text-align:center;
+
+padding:60px;
+
+font-size:18px;
+
+}
+
+
+
+
+
+/* Mobile */
+
+
+@media(max-width:800px){
+
+
+.hero{
+
+flex-direction:column;
+
+text-align:center;
+
+}
+
+
+
+.hero h1{
+
+font-size:70px;
+
+}
+
+
+
+.hero h2{
+
+font-size:26px;
+
+}
+
+
+
+.character img{
+
+width:280px;
+
+}
+
+
+
+.nav-links{
+
+display:none;
+
+}
+
+
+
+.features{
+
+flex-direction:column;
+
+}
+
+
+
+.logo{
+
+font-size:25px;
+
+}
+
+
+
+}
